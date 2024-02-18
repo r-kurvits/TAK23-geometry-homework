@@ -64,6 +64,10 @@ class View(Tk):
         btn_calculate.grid(row=1, column=2, rowspan=2, columnspan=24, padx=5, pady=5, sticky='nsew')
 
         text_box = Text(self.bottom_frame, font=self.default_font, state='disabled')
+        scrollbar = Scrollbar(self.bottom_frame, orient='vertical')
+        scrollbar.config(command=text_box.yview)
+        text_box.configure(yscrollcommand=scrollbar.set)
+        scrollbar.pack(side=RIGHT, fill=Y)
         text_box.pack(expand=True, fill=BOTH, padx=5, pady=5)
 
         self.bind('<Return>', self.controller.calculate_click)

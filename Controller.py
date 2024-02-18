@@ -22,6 +22,7 @@ class Controller:
         if result:
             self.view.text_box.config(state='normal')
             self.view.text_box.insert('insert', result + '\n')
+            self.view.text_box.insert('insert', '----------------------------------------------------------- \n')
             self.view.text_box.see('end')
             self.view.text_box.config(state='disabled')
 
